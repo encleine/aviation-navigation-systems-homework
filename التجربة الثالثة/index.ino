@@ -8,8 +8,9 @@ void setup() {
 
 void loop() {
     float ADCin = analogRead(A0);
-    float ADCout = map(ADCin ,0,1023,0,255);
+    float ADCout = map(ADCin, 0, 1023, 0, 255);
     if (ADCin > 650)
         analogWrite(led, ADCout);
+    else digitalWrite(led, LOW);
 }
 
