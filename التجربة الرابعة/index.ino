@@ -4,29 +4,34 @@ int ledGreen=7;
 int ledYellow=8;
 int ledRed=9;
 
-float geTemp(int x) {
-	float Vin = x * ( 5.0 / 1024.0);
-	return Vin * 100;
-}
-
-void setup()
-{
+void setup() {
 	pinMode(baz, OUTPUT);
-
 	pinMode(ledGreen, OUTPUT);
 	pinMode(ledYellow, OUTPUT);
 	pinMode(ledRed, OUTPUT);
-
-	Serial.begin(9600);
 }
 
-void loop()
-{
-	float temp = geTemp(analogRead(A0))
+void loop() {
+	float temp = analogRead(A0) * (5.0 / 1024.0) * 100;
 
-	digitalWrite(ledRed, temp >= 40);
-	digitalWrite(ledYellow, (temp > 25) && (temp <= 35));
-	digitalWrite(ledGreen, temp <= 25);
+	if (temp >= 40) {
+		digitalWrite(ledYellow, LOW);
+		
+		digitalWrite(baz, HIGH);
+		digitalWrite(ledRed, HIGH);
+	}
+	else if (temp <= 35) {
+		digitalWrite(baz, HIGH);
+		digitalWrite(ledYellow, HIGH);
 
-	digitalWrite(baz, temp > 25);
+		digitalWrite(ledRed, LOW);
+		digitalWrite(ledGreen, LOW);
+	}
+	else if (temp <= 25) {
+		digitalWrite(baz, LOW);
+		digitalWrite(ledYellow, LOW);
+
+		digitalWrite(ledGreen, HIGH);
+	}
+	delay(100)
 }
