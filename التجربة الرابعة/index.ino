@@ -20,7 +20,7 @@ void loop() {
 		digitalWrite(baz, HIGH);
 		digitalWrite(ledRed, HIGH);
 	}
-	else if (temp <= 35) {
+	else if (temp <= 35 && temp > 25) {
 		digitalWrite(baz, HIGH);
 		digitalWrite(ledYellow, HIGH);
 
@@ -33,5 +33,5 @@ void loop() {
 
 		digitalWrite(ledGreen, HIGH);
 	}
-	delay(100)
+	delay(100);
 }
