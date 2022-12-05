@@ -12,9 +12,7 @@ void setup()
 void loop()
 {
     isPushed = digitalRead(push);
-    if (ispushed)
-        myservo.write(90);
-    else
-        myservo.write(180);
+
+    myservo.write((isPushed) ? 90 : 180);
     delay(150);
 }

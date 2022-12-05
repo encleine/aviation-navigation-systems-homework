@@ -1,12 +1,12 @@
-int baz = 9;
+int buz = 9;
 int tilt = 8;
 
 void setup () {
-    pinMode(baz , OUTPUT);
+    pinMode(buz , OUTPUT);
     pinMode(tilt , INPUT_PULLUP);
 }
 
 void loop () {
-    val = digitalRead(tilt);
-    digitalWrite(baz, val);
+    int tilted = digitalRead(tilt);
+    digitalWrite(buz, tilted);
 }

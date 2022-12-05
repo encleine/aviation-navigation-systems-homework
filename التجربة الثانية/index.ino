@@ -13,4 +13,4 @@ void loop() {
         digitalWrite(2, HIGH);
     else if (!digitalRead(1))
         digitalWrite(2, LOW);
-}
+} 
