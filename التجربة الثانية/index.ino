@@ -1,4 +1,7 @@
 
+int sw1;
+int sw2;
+
 void setup() {
     // switches
     pinMode(0, INPUT_PULLUP);
@@ -8,9 +11,12 @@ void setup() {
 }
 
 void loop() {
-    //! inverts the value so it's only true if it's zero
-    if (!digitalRead(0))
+	sw1 = digitalRead(0);
+	sw2 = digitalRead(1);
+
+    if (sw1==0) 
         digitalWrite(2, HIGH);
-    else if (!digitalRead(1))
+
+    else if (sw2==0)
         digitalWrite(2, LOW);
 } 
