@@ -1,16 +1,15 @@
-
-int highlow = HIGH;
-
-void setup() {
-    pinMode(0, OUTPUT);
-    pinMode(1, OUTPUT);
-    pinMode(2, OUTPUT);
+void setup () {
+	for (int i = 0; i < 3; i++)
+		pinMode(i, OUTPUT);
 }
 
-void loop() {
-    for (int pin = 0; pin < 3; pin++) {
-        digitalWrite(pin, highlow);
-        delay(300);
-    }
-    highlow = !highlow;
+void loop () {
+	for (int i = 0; i < 3; i++) {
+		digitalWrite(i, HIGH);
+		delay(300);
+	}
+	for (int i = 0; i < 3; i++) {
+		digitalWrite(i, LOW);
+		delay(300);
+	}
 }
