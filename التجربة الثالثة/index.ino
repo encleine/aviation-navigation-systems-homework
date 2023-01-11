@@ -1,15 +1,13 @@
-
-
 int led = 9;
 void setup() {
     pinMode(led, OUTPUT);
-    Serial.begin(9600);
 }
 
 void loop() {
-    float ADCin = analogRead(A0);
-    float ADCout = map(ADCin, 0, 1023, 0, 255);
-    if (ADCin > 650)
-        analogWrite(led, ADCout);
-    else digitalWrite(led, LOW);
+	float ADCin = analogRead(A0);
+
+	if (ADCin > 650)
+		digitalWrite(led, HIGH);
+	else
+		digitalWrite(led, LOW);
 }
