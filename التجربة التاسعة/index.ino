@@ -1,7 +1,6 @@
 #include <Stepper.h>
 
 int steps = 200;
-int right, left;
 // attach
 Stepper stepper(steps, 8, 9, 10, 11);
 
@@ -13,13 +12,10 @@ void setup() {
 }
 
 void loop() {
-    right = !digitalRead(4);
-    left = !digitalRead(5);
-
-    if (right) {
-        myStepper.step(steps)
-    } else if (left) {
-        myStepper.step(steps * -1)
+    if (digitalRead(4) == HIGH) {
+        myStepper.step(steps);
+    } else if (digitalRead(5) == HIGH) {
+        myStepper.step(steps * -1);
     }
-    delay(100);
+    delay(500);
 }
